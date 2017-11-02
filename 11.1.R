@@ -52,6 +52,35 @@ breaks = str_locate(emails,pattern = "\n\n")
 metadata = str_sub(emails,end = breaks[,1]) # nothing before the , it will be whatever number email it is
 body = str_sub(emails,start = breaks[,2])
 
+### handout 2
+
+#1
+fruit <- c("apple","banana","pear","pineapple")
+
+#2
+str_detect(fruit,"a")
+str_detect(fruit,"^a") # ^: starts with
+str_detect(fruit,"a$") # $: ends with
+str_detect(fruit, "[aeiou]") # []:contains any of the values inside
+str_detect(fruit, "[a-d]") # any character in between a to d
+
+#3 detect: starts with "a", ends with "e"
+str_detect(fruit,"^a[a-z]*e$")
+
+#4
+phone = c("213 740 4826","213-740-4826")
+parser = "[0-9]{3}[ -][0-9]{3}[ -][0-9]{4}"
+str_detect(phone,parser)
+
+#5
+cat(body[10])
+cat(body[18])
+str_extract(body,parser)
+
+#6
+zipcodes = c("90028","90028-080967")
+parserzip = "[0-9]{5}(-[0-9]{4})?\\b" #\\b means end of pattern, anything going beyond doesn't count
+str_detect(zipcodes,parserzip)
 
 
 
